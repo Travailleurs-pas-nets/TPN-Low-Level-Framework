@@ -54,4 +54,5 @@ dkms.conf
 /bin/*
 /lib/*
 /include/*
+/test/bin/*
 !/test/lib/*

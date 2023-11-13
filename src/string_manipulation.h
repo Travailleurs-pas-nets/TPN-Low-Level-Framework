@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 #include <math.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <string.h>
 

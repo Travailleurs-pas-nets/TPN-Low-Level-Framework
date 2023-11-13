@@ -13,6 +13,7 @@ char *intToChars(int in) {
     char *result;
     int nextIndex = 0;
     bool startedWriting = false;
+    bool isMinValue = (in == INT_MIN);
 
     if (in >= 0) {
         int size = 10; /* Max length of a 32 bits int. */
@@ -22,9 +23,20 @@ char *intToChars(int in) {
         result = malloc(size);
         result[nextIndex] = '-';
         nextIndex++;
+
+        if (isMinValue) {
+            in += 1; // We'll add that back later...
+        }
+
+        in *= -1;
     }
 
     for (int power = 9; power >= 0; power--) {
+        if (isMinValue && power == 0) {
+            // Adding back the value that was deduced to make the inversion possible
+            in += 1; // (+ because we work with the opposite).
+        }
+
         int value = (int) floor(in / pow(10, power));
 
         /* second condition because we don't want to stop writing the string once we started,
@@ -36,6 +48,11 @@ char *intToChars(int in) {
             in -= value * (int)pow(10, power);
             startedWriting = true;
         }
+    }
+
+    if(!startedWriting) {
+        result[nextIndex] = '0';
+        nextIndex++;
     }
 
     result[nextIndex] = '\0';
@@ -88,11 +105,21 @@ char **split(char *stringToSplit, char delimiter, unsigned short *wordCount) {
     unsigned short delimiterCount = 0;
     unsigned short localWordCount = 0;
     char *stringDuplicate = strdup(stringToSplit); // Copying the string to ensure it stays unchanged.
+    bool lastCharDelimiter = false;
 
     // First, we iterate through the string to find the number of times the delimiter is present.
     for (int i = 0; stringDuplicate[i] != '\0'; i++) {
+        bool isFirstChar = (i == 0);
+        bool isLastChar = (i == strlen(stringDuplicate) - 1);
+
         if (stringDuplicate[i] == delimiter) {
-            delimiterCount++;
+            if (!lastCharDelimiter && !isFirstChar && !isLastChar) {
+                delimiterCount++;
+            }
+
+            lastCharDelimiter = true;
+        } else {
+            lastCharDelimiter = false;
         }
     }
 
@@ -103,10 +130,19 @@ char **split(char *stringToSplit, char delimiter, unsigned short *wordCount) {
     // And finally we fill our array with strings.
     token = strtok(stringDuplicate, delimiterAsString);
     while (token) {
-        tokens[localWordCount] = token;
+        tokens[localWordCount] = strdup(token);
         localWordCount++;
         token = strtok(NULL, delimiterAsString);
     }
+
+    if (localWordCount == 0) {
+        // Giving an array with only one empty string if there was nothing the tokenizer could find
+        // in the given string.
+        tokens[0] = "";
+        localWordCount++;
+    }
+
+    free(stringDuplicate);
     
     *wordCount = localWordCount;
     tokens[localWordCount + 1] = 0;
@@ -120,12 +156,12 @@ char **split(char *stringToSplit, char delimiter, unsigned short *wordCount) {
  * TODO: Add examples.
  */
 char *createQuestionMarkString(int length) {
-    char *word = malloc(length);
+    char *word = malloc(sizeof(char) * (length + 1));
 
-    for (int i = 0; i < length - 1; i++) {
+    for (int i = 0; i < length; i++) {
         word[i] = '?';
     }
 
-    word[length - 1] = '\0';
+    word[length] = '\0';
     return word;
 }
