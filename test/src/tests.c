@@ -15,15 +15,15 @@
 
 // Defining the list of tests to execute:
 static MunitTest test_array[] = {
-    { (char *) "/chron/getTime", test_getTime, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/logger/flushOutput", test_flushOutput, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/logger/handleError", test_handleError, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/logger/handleRuntimeError", test_handleRuntimeError, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/logger/debug", test_debug, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/string_manipulation/intToChars", test_intToChars, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/string_manipulation/concat", test_concat, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/string_manipulation/split", test_split, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
-    { (char *) "/string_manipulation/createQuestionMarkString", test_createQuestionMarkString, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/chron/getTime                               \t\t", test_getTime, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/logger/flushOutput                          \t\t", test_flushOutput, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/logger/handleError                          \t\t", test_handleError, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/logger/handleRuntimeError                   \t\t", test_handleRuntimeError, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/logger/debug                                \t\t", test_debug, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/string_manipulation/intToChars              \t\t", test_intToChars, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/string_manipulation/concat                  \t\t", test_concat, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/string_manipulation/split                   \t\t", test_split, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/string_manipulation/createQuestionMarkString\t\t", test_createQuestionMarkString, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
     
     // Last item must be this one (it is used to identify that this is the end of the list).
     { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
