@@ -15,7 +15,7 @@
  * char *n = intToChars(1000);
  * char *k = intToChars(-1280);
  * 
- * printf("n = %s \nk = %s", n, k);
+ * printf("n = %s \\nk = %s", n, k);
  * free(n);
  * free(k);
  * ```
