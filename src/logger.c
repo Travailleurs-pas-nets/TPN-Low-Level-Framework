@@ -89,7 +89,7 @@ void handleRuntimeError(char *message, char *charTime, int mode) {
  */
 void handleCriticalError(char *message, char *charTime, int mode) {
     handleError("[CRITICAL]", message, charTime, mode);
-    //exit(1); // Has to be commented when testing!
+    exit(1); // Has to be commented when testing!
 }
 
 /**
