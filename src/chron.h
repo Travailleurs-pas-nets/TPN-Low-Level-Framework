@@ -1,3 +1,4 @@
+#pragma once
 /**
  * Library containing the time functions of the framework.
  */

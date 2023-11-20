@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * File containing the constants of the framework
  */

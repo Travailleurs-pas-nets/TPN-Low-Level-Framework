@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Library containing the logging functions of the framework.
  */

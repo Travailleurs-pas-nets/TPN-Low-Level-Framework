@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Library containing the string manipulation functions of the framework.
  */

@@ -1,3 +1,5 @@
+#pragma once
+
 /**
  * Global framework import header. Including it will automatically include all the functions the
  * framework provides.
