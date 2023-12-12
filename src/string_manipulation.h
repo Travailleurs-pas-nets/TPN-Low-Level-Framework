@@ -103,3 +103,27 @@ extern char **split(char *stringToSplit, char delimiter, unsigned short *wordCou
  * ```
  */
 extern char *createQuestionMarkString(int length);
+
+/**
+ * Function that counts the number of letters in a word. By default, it stops when it encounters a
+ * whitespace (' ').
+ * 
+ * Example:
+ * ```c
+ * char *str = "this is a test string";
+ * char *other_pointer = str + 5;
+ * 
+ * unsigned int first_word_length = wrdlen(str);
+ * unsigned int second_word_length = wrdlen(other_pointer);
+ * 
+ * printf("first word length = %d\n", first_word_length);
+ * printf("second word length = %d\n", second_word_length);
+ * ```
+ * 
+ * => output:
+ * ```txt
+ * first word length = 4
+ * second word length = 2
+ * ```
+ */
+extern unsigned int wrdlen(const char *sentence);

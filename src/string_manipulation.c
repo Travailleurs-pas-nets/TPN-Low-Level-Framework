@@ -226,3 +226,32 @@ char *createQuestionMarkString(int length) {
     word[length] = '\0';
     return word;
 }
+
+/**
+ * Function that counts the number of letters in a word. By default, it stops when it encounters a
+ * whitespace (' ').
+ * 
+ * Example:
+ * ```c
+ * char *str = "this is a test string";
+ * char *other_pointer = str + 5;
+ * 
+ * unsigned int first_word_length = wrdlen(str);
+ * unsigned int second_word_length = wrdlen(other_pointer);
+ * 
+ * printf("first word length = %d\n", first_word_length);
+ * printf("second word length = %d\n", second_word_length);
+ * ```
+ * 
+ * => output:
+ * ```txt
+ * first word length = 4
+ * second word length = 2
+ * ```
+ */
+unsigned int wrdlen(const char *sentence)
+{
+    unsigned int count = 0;
+    while (*(sentence + count) != ' ' && *(sentence + count) != '\0') count++;
+    return count;
+}

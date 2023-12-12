@@ -12,6 +12,7 @@
 #include "string_manipulation_concat.c"
 #include "string_manipulation_split.c"
 #include "string_manipulation_createQuestionMarkString.c"
+#include "string_manipulation_wrdlen.c"
 
 // Defining the list of tests to execute:
 static MunitTest test_array[] = {
@@ -24,6 +25,7 @@ static MunitTest test_array[] = {
     { (char *) "/string_manipulation/concat                  \t\t", test_concat, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
     { (char *) "/string_manipulation/split                   \t\t", test_split, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
     { (char *) "/string_manipulation/createQuestionMarkString\t\t", test_createQuestionMarkString, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
+    { (char *) "/string_manipulation/wrdlen                  \t\t", test_wrdlen, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL },
     
     // Last item must be this one (it is used to identify that this is the end of the list).
     { NULL, NULL, NULL, NULL, MUNIT_TEST_OPTION_NONE, NULL }
