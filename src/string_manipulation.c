@@ -192,7 +192,7 @@ char **split(char *stringToSplit, char delimiter, unsigned short *wordCount) {
     free(stringDuplicate);
     
     *wordCount = localWordCount;
-    tokens[localWordCount + 1] = 0;
+    tokens[localWordCount] = 0;
     return tokens;
 }
 #pragma GCC diagnostic pop
